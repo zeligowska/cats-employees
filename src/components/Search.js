@@ -1,4 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import './Search.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 class Search extends Component {
     state = {
@@ -10,7 +13,7 @@ class Search extends Component {
     }
 
     keyDown = (event) => {
-        if(!this.state.query) {
+        if (!this.state.query) {
             return;
         }
         if (event.keyCode === 13) {
@@ -22,14 +25,18 @@ class Search extends Component {
 
     render() {
         return (
-            <div>
+            <div className="search-container">
                 <input
                     type="text"
-                    placeholder="Search..."
+                    placeholder="Search for job position"
                     value={this.state.query}
                     onChange={this.handleChange}
                     onKeyDown={this.keyDown}
-                ></input>
+                    className="search-form"
+                />
+                <button type="submit" class="searchButton">
+                    <FontAwesomeIcon icon={faSearch} />
+                </button>
             </div>
         )
     }

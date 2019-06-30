@@ -1,0 +1,30 @@
+.search-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.search-form {
+
+    width: 35%;
+    border: 3px solid #4d5f72;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+}
+
+.searchButton {
+    width: 40px;
+    height: 36px;
+    border: 1px solid #4d5f72;
+    background: #4d5f72;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}

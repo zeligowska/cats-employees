@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import CatsList from './components/CatsList';
 import About from './components/About';
 import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 
 import './App.css';
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" exact component={CatsList} />
         <Route path="/About" component={About} />
       </div>
+      <Footer />
     </BrowserRouter>
   );
 }

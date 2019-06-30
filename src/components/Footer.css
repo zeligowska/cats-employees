@@ -1,0 +1,14 @@
+.footer {
+    background-color: #4d5f72;
+    margin-top: 20px;
+    padding: 20px;
+    text-align: right;
+    position: fixed;
+    bottom:0;
+    width: 100%;
+}
+
+a {
+    text-decoration: unset;
+    margin-right: 30px;
+}

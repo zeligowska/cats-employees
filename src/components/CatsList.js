@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import faker from 'faker';
 import uuid from 'uuid/v1';
+import {Link} from 'react-router-dom';
 
 import Search from './Search';
 import './CatsList.css';
@@ -21,13 +22,6 @@ class CatsList extends Component {
 
         this.setState({ filteredCats });
         console.log(filteredCats);
-
-
-        // const tasks = [...this.state.tasks];
-        // const task = {id: this.currentId, title: name, completed: false};
-        // tasks.push(task);
-        // this.setState({ tasks });
-        // this.currentId++;
     }
 
     importCats() {
@@ -80,7 +74,7 @@ class CatsList extends Component {
                         </div>
                     </div>
                 ))}
-                <button onClick={this.refresh}>Back to full list</button>
+                <button className="button-refresh" onClick={this.refresh}>Back to full list</button>
             </div>
         )
     }
