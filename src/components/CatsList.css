@@ -1,0 +1,29 @@
+.cat {
+    border-radius: 8px;
+    background-color: #dda5b6;
+    margin: 5px;
+    padding: 10px;
+    width: 35%;
+    text-align: center;
+    display: flex;
+    font-family: 'Courier New', Courier, monospace;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+img {
+    border-radius: 20%;
+    width: 80%;
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #4d5f72;
+}
