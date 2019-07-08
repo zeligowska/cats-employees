@@ -6,3 +6,7 @@ p {
     background-color: #dda5b6;
     border-radius: 15px;
 }
+
+.container-about {
+    height: 100%;
+}

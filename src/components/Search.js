@@ -34,7 +34,7 @@ class Search extends Component {
                     onKeyDown={this.keyDown}
                     className="search-form"
                 />
-                <button type="submit" class="searchButton">
+                <button type="submit" className="searchButton">
                     <FontAwesomeIcon icon={faSearch} />
                 </button>
             </div>
