@@ -3,10 +3,20 @@ import React from 'react';
 import './CatsList.css';
 
 function CatsList(props) {
-    console.log(props.cats[props.match.params.catNumber])
-    return (
-        <div className="container" key={props.match.params.catNumber}>
-            {props.cats.map(cat => (
+
+    // const currentCats = props.cats.filter((cat, i) => {
+    //     i ? props.match.params.catNumber * 5
+    // })
+
+    let res = props.cats;
+    let currentCats = [];
+    while (res.length) {
+        currentCats.push(res.splice(0, 5));
+    }
+
+    return  (
+        <div className="container" >
+            {  currentCats[props.match.params.catNumber] !== undefined && currentCats[props.match.params.catNumber].map(cat => (
                 <div key={"" + props.match.params.catNumber + cat.id} className="cat">
                     <div className="photo">
                         <img src={cat.url} alt="" />

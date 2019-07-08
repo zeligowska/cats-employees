@@ -17,19 +17,11 @@ class App extends Component {
 
   state = {
     cats: [],
-    filteredCats: [],
     query: ''
   };
 
   handleSearch = (query) => {
-    console.log('query: ' + query);
-
-    const filteredCats = this.state.cats.filter((element) => {
-      return element.title.toUpperCase().includes(query.toUpperCase());
-    });
-
-    this.setState({ filteredCats });
-    console.log(filteredCats);
+      this.setState({ query })
   };
 
   importCats() {
@@ -51,17 +43,12 @@ class App extends Component {
           };
           cats.push(cat);
         });
-        this.setState({ filteredCats: cats });
-        let res = [];
-        while (cats.length) {
-          res.push(cats.splice(0, 5));
-        }
-        this.setState({ cats: res });
+        this.setState({ cats });
 
       });
   };
 
-  componentDidMount() {
+  componentWillMount() {
     this.importCats();
   };
 
@@ -69,6 +56,10 @@ class App extends Component {
     const cats = this.state.cats;
     this.setState({ filteredCats: cats });
   };
+
+  filter = () => {
+
+  }
 
   render() {
 
@@ -87,7 +78,7 @@ class App extends Component {
             path='/:catNumber' render={(props) =>
               <>
                 <Search createHandler={this.handleSearch} />
-                <CatsList cats={this.state.cats} refresh={this.refresh} {...props}/>
+                <CatsList query={this.state.query} cats={this.state.cats} refresh={this.refresh} {...props}/>
               </>
             }
           />
