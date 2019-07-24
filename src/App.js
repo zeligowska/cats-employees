@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import faker from 'faker';
 import uuid from 'uuid/v1';
+import { createBrowserHistory } from "history";
 
 import CatsList from './components/CatsList';
 import About from './components/About';
@@ -9,6 +10,7 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Search from './components/Search';
 import PageNavigation from './components/PageNavigation';
+
 
 import './App.css';
 
@@ -19,15 +21,15 @@ class App extends Component {
   state = {
     cats: [],
     filteredCats: [],
-    query: ''
+    query: '',
+    history: createBrowserHistory()
   };
 
   handleSearch = (query) => {
-    console.log(this.state.cats);
+    this.state.history.push('/0');
     const filteredCats = this.state.cats.filter((element) => {
       return element.title.toUpperCase().includes(query.toUpperCase());
     });
-
     this.setState({ filteredCats });
   };
 
@@ -36,7 +38,7 @@ class App extends Component {
       const headers = {
         'x-api-key': 'd24b427d-578e-4609-86bd-b36555c3875c'
       };
-      fetch('https://api.thecatapi.com/v1/images/search?limit=30', { headers })
+      fetch('https://api.thecatapi.com/v1/images/search?limit=35', { headers })
         .then(response => response.json())
         .then(data => {
           const cats = [];
@@ -75,7 +77,7 @@ class App extends Component {
     ]
 
     return (
-      <BrowserRouter>
+      <BrowserRouter history={this.state.history}>
         <div className="App">
           <NavBar links={links} />
 
