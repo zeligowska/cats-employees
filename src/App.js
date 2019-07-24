@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import Search from './components/Search';
 import PageNavigation from './components/PageNavigation';
 
+
 import './App.css';
 
 
@@ -26,7 +27,6 @@ class App extends Component {
   };
 
   handleSearch = (query) => {
-    console.log(this.state.cats);
     const filteredCats = this.state.cats.filter((element) => {
       return element.title.toUpperCase().includes(query.toUpperCase());
     });
@@ -39,7 +39,7 @@ class App extends Component {
       const headers = {
         'x-api-key': 'd24b427d-578e-4609-86bd-b36555c3875c'
       };
-      fetch('https://api.thecatapi.com/v1/images/search?limit=30', { headers })
+      fetch('https://api.thecatapi.com/v1/images/search?limit=35', { headers })
         .then(response => response.json())
         .then(data => {
           const cats = [];

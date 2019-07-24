@@ -17,6 +17,7 @@ function CatsList(props) {
     }
     const page = (props.match.params.catNumber !== undefined) && (props.match.params.catNumber !== null) ? props.match.params.catNumber: 0;
 
+
     return (
         <div className="container" >
             {currentCats[page] !== undefined && currentCats[page].map(cat => (
