@@ -14,11 +14,11 @@ function CatsList(props) {
     while (res.length) {
         currentCats.push(res.splice(0, 5));
     }
-    const page = (props.match.params.catNumber != undefined) && (props.match.params.catNumber != null) ? props.match.params.catNumber: 0;
+    const page = (props.match.params.catNumber != undefined) && (props.match.params.catNumber != null) ? props.match.params.catNumber : 0;
 
-    return  (
+    return (
         <div className="container" >
-            {  currentCats[page] !== undefined && currentCats[page].map(cat => (
+            {currentCats[page] !== undefined && currentCats[page].map(cat => (
                 <div key={"" + page + cat.id} className="cat">
                     <div className="photo">
                         <img src={cat.url} alt="" />

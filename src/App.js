@@ -57,7 +57,7 @@ class App extends Component {
   };
 
   async componentWillMount() {
-    const cats =  await this.importCats();
+    const cats = await this.importCats();
     this.setState({ cats, filteredCats: cats });
   };
 

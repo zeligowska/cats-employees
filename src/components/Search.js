@@ -11,7 +11,6 @@ function Search(props) {
             onSubmit={(e) => {
                 e.preventDefault()
                 const query = e.target.childNodes[0].value;
-                console.log(e.target.childNodes[0].value)
                 props.createHandler(query)
             }}
             className="search-container">

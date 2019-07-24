@@ -7,18 +7,18 @@ function PageNavigation(props) {
     let prev = parseInt(props.match.params.catNumber) - 1;
     let next = parseInt(props.match.params.catNumber) + 1;
 
-    if(props.match.params.catNumber == undefined && props.length != 0) {
+    if (props.match.params.catNumber === undefined && props.length !== 0) {
         prev = 0;
         next = 1;
     }
 
-    if(props.match.params.catNumber == 0)
+    if (props.match.params.catNumber === '0')
         prev = 0;
 
-    if(props.match.params.catNumber != 0 && props.match.params.catNumber == props.length)
-        next = props.length;
+    if (props.match.params.catNumber !== '0' && parseInt(props.match.params.catNumber) >= ((props.length) / 5) - 1)
+        next = props.length / 5 - 1;
 
-    if(props.length == 0)
+    if (props.length === 0)
         next = 0;
 
 
