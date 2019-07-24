@@ -9,7 +9,7 @@ function CatsList(props) {
     //     i ? props.match.params.catNumber * 5
     // })
 
-    let res = props.cats;
+    let res = [...props.cats];
     let currentCats = [];
     while (res.length) {
         currentCats.push(res.splice(0, 5));

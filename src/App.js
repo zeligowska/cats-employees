@@ -31,33 +31,34 @@ class App extends Component {
     this.setState({ filteredCats });
   };
 
-  importCats() {
-    const headers = {
-      'x-api-key': 'd24b427d-578e-4609-86bd-b36555c3875c'
-    };
-    fetch('https://api.thecatapi.com/v1/images/search?limit=30', { headers })
-      .then(response => response.json())
-      .then(data => {
-        const cats = [];
-        data.forEach(element => {
-          const cat = {
-            id: uuid(),
-            firstName: faker.name.firstName(),
-            lastName: faker.name.lastName(),
-            title: faker.name.jobTitle(),
-            url: element.url,
-            phone: faker.phone.phoneNumber(),
-          };
-          cats.push(cat);
-        });
-        this.setState({ cats: cats });
-        this.setState({ filteredCats: cats });
-        console.log(cats);
-      });
+  async importCats() {
+    return new Promise((resolve, reject) => {
+      const headers = {
+        'x-api-key': 'd24b427d-578e-4609-86bd-b36555c3875c'
+      };
+      fetch('https://api.thecatapi.com/v1/images/search?limit=30', { headers })
+        .then(response => response.json())
+        .then(data => {
+          const cats = [];
+          data.forEach(element => {
+            const cat = {
+              id: uuid(),
+              firstName: faker.name.firstName(),
+              lastName: faker.name.lastName(),
+              title: faker.name.jobTitle(),
+              url: element.url,
+              phone: faker.phone.phoneNumber(),
+            };
+            cats.push(cat);
+          });
+          resolve(cats);
+        }).catch(err => reject(err));
+    })
   };
 
-  componentWillMount() {
-    this.importCats();
+  async componentWillMount() {
+    const cats =  await this.importCats();
+    this.setState({ cats, filteredCats: cats });
   };
 
   refresh = () => {
