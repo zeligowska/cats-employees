@@ -8,6 +8,7 @@ import About from './components/About';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Search from './components/Search';
+import PageNavigation from './components/PageNavigation';
 
 import './App.css';
 
@@ -28,10 +29,6 @@ class App extends Component {
     });
 
     this.setState({ filteredCats });
-    console.log('filtered: ' + query);
-    console.log(this.state.filteredCats);
-    console.log(this.state.cats);
-    console.log(filteredCats);
   };
 
   importCats() {
@@ -53,7 +50,7 @@ class App extends Component {
           };
           cats.push(cat);
         });
-        this.setState({ cats });
+        this.setState({ cats: cats });
         this.setState({ filteredCats: cats });
         console.log(cats);
       });
@@ -83,10 +80,11 @@ class App extends Component {
 
           <h1>List of excellent cat employees</h1>
           <Route
-            path='/:catNumber' render={(props) =>
+            path='/:catNumber?' render={(props) =>
               <>
                 <Search createHandler={this.handleSearch} />
                 <CatsList query={this.state.query} cats={this.state.filteredCats} refresh={this.refresh} {...props} />
+                <PageNavigation length={this.state.cats.length} {...props} />
               </>
             }
           />

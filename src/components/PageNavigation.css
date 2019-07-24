@@ -1,0 +1,14 @@
+.button-pages {
+    background-color: #4d5f72;
+    color: #f2cc8c;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    border-radius: 6px;
+    padding: 8px;
+    box-shadow: 2px 2px 4px #4d5f72;
+    margin: 5px;
+}
+
+.container-pages {
+    margin-bottom: 80px;
+}

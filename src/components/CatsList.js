@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import './CatsList.css';
 
 function CatsList(props) {
@@ -13,11 +14,12 @@ function CatsList(props) {
     while (res.length) {
         currentCats.push(res.splice(0, 5));
     }
+    const page = (props.match.params.catNumber != undefined) && (props.match.params.catNumber != null) ? props.match.params.catNumber: 0;
 
     return  (
         <div className="container" >
-            {  currentCats[props.match.params.catNumber] !== undefined && currentCats[props.match.params.catNumber].map(cat => (
-                <div key={"" + props.match.params.catNumber + cat.id} className="cat">
+            {  currentCats[page] !== undefined && currentCats[page].map(cat => (
+                <div key={"" + page + cat.id} className="cat">
                     <div className="photo">
                         <img src={cat.url} alt="" />
                     </div>
