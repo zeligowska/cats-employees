@@ -22,14 +22,15 @@ class App extends Component {
     cats: [],
     filteredCats: [],
     query: '',
+    redirect: false,
     history: createBrowserHistory()
   };
 
   handleSearch = (query) => {
-    this.state.history.push('/0');
     const filteredCats = this.state.cats.filter((element) => {
       return element.title.toUpperCase().includes(query.toUpperCase());
     });
+    this.state.history.push('/');
     this.setState({ filteredCats });
   };
 
@@ -53,6 +54,7 @@ class App extends Component {
             };
             cats.push(cat);
           });
+          console.log(cats);
           resolve(cats);
         }).catch(err => reject(err));
     })

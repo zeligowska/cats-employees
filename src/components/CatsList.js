@@ -10,11 +10,13 @@ function CatsList(props) {
     // })
 
     let res = [...props.cats];
+    console.log(res);
     let currentCats = [];
     while (res.length) {
         currentCats.push(res.splice(0, 5));
     }
-    const page = (props.match.params.catNumber !== undefined) && (props.match.params.catNumber != null) ? props.match.params.catNumber : 0;
+    const page = (props.match.params.catNumber !== undefined) && (props.match.params.catNumber !== null) ? props.match.params.catNumber: 0;
+
 
     return (
         <div className="container" >
