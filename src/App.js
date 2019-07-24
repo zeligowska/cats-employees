@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import faker from 'faker';
 import uuid from 'uuid/v1';
+import { createBrowserHistory } from "history";
 
 import CatsList from './components/CatsList';
 import About from './components/About';
@@ -19,7 +20,9 @@ class App extends Component {
   state = {
     cats: [],
     filteredCats: [],
-    query: ''
+    query: '',
+    redirect: false,
+    history: createBrowserHistory()
   };
 
   handleSearch = (query) => {
@@ -27,7 +30,7 @@ class App extends Component {
     const filteredCats = this.state.cats.filter((element) => {
       return element.title.toUpperCase().includes(query.toUpperCase());
     });
-
+    this.state.history.push('/');
     this.setState({ filteredCats });
   };
 
@@ -75,7 +78,7 @@ class App extends Component {
     ]
 
     return (
-      <BrowserRouter>
+      <BrowserRouter history={this.state.history}>
         <div className="App">
           <NavBar links={links} />
 
