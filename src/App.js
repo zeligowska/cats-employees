@@ -54,6 +54,7 @@ class App extends Component {
             };
             cats.push(cat);
           });
+          console.log(cats);
           resolve(cats);
         }).catch(err => reject(err));
     })
